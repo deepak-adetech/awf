@@ -13,27 +13,12 @@ const items = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [time, setTime] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    const tick = () => {
-      const d = new Date();
-      const fmt = d.toLocaleTimeString("en-US", {
-        hour: "2-digit",
-        minute: "2-digit",
-        timeZone: "America/New_York",
-      });
-      setTime(fmt + " ET");
-    };
-    tick();
-    const id = setInterval(tick, 30_000);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearInterval(id);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -50,11 +35,9 @@ export default function Nav() {
               : "border-transparent bg-transparent px-2 py-1"
           }`}
         >
-          <a href="#" className="flex items-center gap-2 pl-2">
+          <a href="#" className="flex items-center gap-2.5 pl-2">
             <Logo />
-            <span className="text-[14.5px] font-medium tracking-tight">
-              AutoWorkflows
-            </span>
+            <Wordmark />
           </a>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -70,9 +53,6 @@ export default function Nav() {
           </nav>
 
           <div className="flex items-center gap-2 pr-1">
-            <span className="hidden lg:inline-block mono text-[11px] text-ink/50 mr-2">
-              {time}
-            </span>
             <a href="#contact" className="btn-ghost hidden sm:inline-flex">
               Login
             </a>
@@ -86,19 +66,46 @@ export default function Nav() {
   );
 }
 
+/** Wordmark: AutoWorkFlow with .AI in gradient */
+export function Wordmark({ size = 14.5 }: { size?: number }) {
+  return (
+    <span
+      className="font-medium tracking-tight"
+      style={{ fontSize: `${size}px`, letterSpacing: "-0.018em" }}
+    >
+      AutoWorkFlow<span className="text-gradient-azure font-semibold">.AI</span>
+    </span>
+  );
+}
+
+/**
+ * Simpler, no-box logo: three rising bars connected by a flow arc.
+ * Reads as a workflow / signal mark.
+ */
 function Logo() {
   return (
-    <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-azure-500 text-canvas">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+    <span className="relative inline-flex items-center justify-center" aria-label="AutoWorkFlow.AI">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0%" stopColor="#0071E3" />
+            <stop offset="55%" stopColor="#5E5CE6" />
+            <stop offset="100%" stopColor="#BF5AF2" />
+          </linearGradient>
+        </defs>
+        {/* three rising bars */}
+        <rect x="3"  y="14" width="3" height="7" rx="1.2" fill="url(#logoGrad)" />
+        <rect x="10.5" y="9"  width="3" height="12" rx="1.2" fill="url(#logoGrad)" />
+        <rect x="18" y="4"  width="3" height="17" rx="1.2" fill="url(#logoGrad)" />
+        {/* connecting flow arc */}
         <path
-          d="M4 18 L10 6 L14 14 L20 6"
-          stroke="currentColor"
+          d="M 4.5 12 C 8 6, 13 9, 19.5 3"
+          stroke="url(#logoGrad)"
           strokeWidth="1.6"
           strokeLinecap="round"
-          strokeLinejoin="round"
+          fill="none"
+          opacity="0.55"
         />
-        <circle cx="4" cy="18" r="1.6" fill="currentColor" />
-        <circle cx="20" cy="6" r="1.6" fill="currentColor" />
       </svg>
     </span>
   );

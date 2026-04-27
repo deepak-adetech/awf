@@ -103,14 +103,34 @@ export default function Services() {
                   {s.body}
                 </p>
                 <ul className="mt-6 flex flex-wrap gap-2">
-                  {s.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="text-[12px] px-3 py-1.5 rounded-full border border-ink/10 text-ink/70 mono"
-                    >
-                      {b}
-                    </li>
-                  ))}
+                  {s.bullets.map((b, bi) => {
+                    const featured = bi === 0;
+                    return (
+                      <li
+                        key={b}
+                        className={
+                          featured
+                            ? "text-[12px] px-3 py-1.5 rounded-full mono text-canvas font-medium relative overflow-hidden"
+                            : "text-[12px] px-3 py-1.5 rounded-full border border-ink/10 text-ink/70 mono"
+                        }
+                        style={
+                          featured
+                            ? {
+                                background:
+                                  "linear-gradient(96deg, #0071E3 0%, #5E5CE6 60%, #BF5AF2 100%)",
+                                boxShadow:
+                                  "0 6px 18px -8px rgba(0,113,227,0.55), inset 0 1px 0 rgba(255,255,255,0.18)",
+                              }
+                            : undefined
+                        }
+                      >
+                        {featured && (
+                          <span className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-white/85 align-middle" />
+                        )}
+                        {b}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 

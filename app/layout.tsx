@@ -17,17 +17,17 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AutoWorkflows — AI workflows that run your operations",
+  title: "AutoWorkFlow.AI — AI workflows that run your operations",
   description:
     "We design, build, and operate AI workflows for ops-led companies. Audit, blueprint, and ship measurable automation in 30 days.",
   metadataBase: new URL("https://autoworkflows.ai"),
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "AutoWorkflows — AI workflows that run your operations",
+    title: "AutoWorkFlow.AI — AI workflows that run your operations",
     description:
       "Architectural AI automation for COOs and ops leaders. We replace work, not headcount.",
     url: "https://autoworkflows.ai",
-    siteName: "AutoWorkflows",
+    siteName: "AutoWorkFlow.AI",
     type: "website",
   },
 };

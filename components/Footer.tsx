@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <div className="display text-[44px] md:text-[64px] leading-[0.95]">
-              AutoWorkflows<span className="text-azure-500">.</span>
+              AutoWorkFlow<span className="text-gradient-azure font-medium">.AI</span>
             </div>
             <p className="mt-5 max-w-[420px] text-[14.5px] text-ink/60 leading-[1.6]">
               An operations-first AI studio. We design, build, and run AI
@@ -50,7 +50,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 grid lg:grid-cols-12 gap-6 items-center pt-6 border-t border-ink/10 mono text-[11px] text-ink/50">
-          <div className="lg:col-span-4">© 2026 AutoWorkflows Inc. All rights reserved.</div>
+          <div className="lg:col-span-4">© 2026 AutoWorkFlow.AI Inc. All rights reserved.</div>
           <div className="lg:col-span-4 lg:text-center">SOC2 Type II · Q3 2026 · Audited by Drata</div>
           <div className="lg:col-span-4 lg:text-right">
             <a className="hover:text-ink" href="#">Privacy</a>
@@ -73,7 +73,7 @@ export default function Footer() {
             color: "rgba(29,29,31,0.045)",
           }}
         >
-          autoworkflows
+          autoworkflow.ai
         </div>
       </div>
     </footer>
