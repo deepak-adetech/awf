@@ -48,10 +48,10 @@ function nodePath(a: Node, b: Node) {
 }
 
 const kindColor: Record<Node["kind"], string> = {
-  input: "#0A5740",
-  logic: "#0E1411",
-  ai: "#0D6B4E",
-  output: "#0A5740",
+  input: "#0057B3",
+  logic: "#1D1D1F",
+  ai: "#0071E3",
+  output: "#0057B3",
 };
 
 export default function MiniWorkflow() {
@@ -118,16 +118,16 @@ export default function MiniWorkflow() {
     >
       <defs>
         <linearGradient id="mwEdge" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#0D6B4E" stopOpacity="0.18" />
-          <stop offset="40%" stopColor="#0D6B4E" stopOpacity="0.95" />
-          <stop offset="100%" stopColor="#0D6B4E" stopOpacity="0.95" />
+          <stop offset="0%" stopColor="#0071E3" stopOpacity="0.18" />
+          <stop offset="40%" stopColor="#0071E3" stopOpacity="0.95" />
+          <stop offset="100%" stopColor="#0071E3" stopOpacity="0.95" />
         </linearGradient>
         <pattern id="mwBg" width="22" height="22" patternUnits="userSpaceOnUse">
-          <circle cx="1" cy="1" r="0.85" fill="rgba(14,20,17,0.10)" />
+          <circle cx="1" cy="1" r="0.85" fill="rgba(29,29,31,0.10)" />
         </pattern>
         <radialGradient id="mwGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#0D6B4E" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#0D6B4E" stopOpacity="0" />
+          <stop offset="0%" stopColor="#0071E3" stopOpacity="0.18" />
+          <stop offset="100%" stopColor="#0071E3" stopOpacity="0" />
         </radialGradient>
       </defs>
 
@@ -147,7 +147,7 @@ export default function MiniWorkflow() {
                 strokeDasharray="480"
                 strokeLinecap="round"
               />
-              <circle data-mwpkt={i} className="mw-packet" r="4.5" fill="#0D6B4E" />
+              <circle data-mwpkt={i} className="mw-packet" r="4.5" fill="#0071E3" />
             </g>
           );
         })}
@@ -163,14 +163,14 @@ export default function MiniWorkflow() {
             width={NODE_W}
             height={NODE_H}
             fill="#FFFFFF"
-            stroke="rgba(14,20,17,0.12)"
+            stroke="rgba(29,29,31,0.12)"
           />
           <rect x="0" y="0" rx="9" width="3.5" height={NODE_H} fill={kindColor[n.kind]} />
           <circle cx={NODE_W - 12} cy={12} r="2.6" fill={kindColor[n.kind]} />
-          <text x="14" y="22" fontSize="11.5" fontWeight="500" fill="#0E1411">
+          <text x="14" y="22" fontSize="11.5" fontWeight="500" fill="#1D1D1F">
             {n.label}
           </text>
-          <text x="14" y="38" fontSize="9.5" fill="rgba(14,20,17,0.55)">
+          <text x="14" y="38" fontSize="9.5" fill="rgba(29,29,31,0.55)">
             {n.sub}
           </text>
         </g>
@@ -179,24 +179,24 @@ export default function MiniWorkflow() {
       {/* floating tags */}
       <g className="mw-tag">
         <g transform="translate(40, 90)">
-          <rect rx="6" width="86" height="18" fill="#0E1411" />
-          <text x="10" y="13" fontSize="9.5" fill="#FAFAF8" letterSpacing="0.5">
+          <rect rx="6" width="86" height="18" fill="#1D1D1F" />
+          <text x="10" y="13" fontSize="9.5" fill="#FBFBFD" letterSpacing="0.5">
             TRIGGER · API
           </text>
         </g>
       </g>
       <g className="mw-tag">
         <g transform="translate(460, 95)">
-          <rect rx="6" width="68" height="18" fill="#0D6B4E" />
-          <text x="10" y="13" fontSize="9.5" fill="#FAFAF8" letterSpacing="0.5">
+          <rect rx="6" width="68" height="18" fill="#0071E3" />
+          <text x="10" y="13" fontSize="9.5" fill="#FBFBFD" letterSpacing="0.5">
             AGENT · v3
           </text>
         </g>
       </g>
       <g className="mw-tag">
         <g transform="translate(670, 40)">
-          <rect rx="6" width="56" height="18" fill="#0A5740" />
-          <text x="10" y="13" fontSize="9.5" fill="#FAFAF8" letterSpacing="0.5">
+          <rect rx="6" width="56" height="18" fill="#0057B3" />
+          <text x="10" y="13" fontSize="9.5" fill="#FBFBFD" letterSpacing="0.5">
             OUTPUT
           </text>
         </g>

@@ -50,7 +50,7 @@ export default function BlueprintBackdrop() {
         className="absolute h-[560px] w-[560px] rounded-full opacity-60 blur-3xl"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(13,107,78,0.10), rgba(250,250,248,0))",
+            "radial-gradient(closest-side, rgba(0,113,227,0.10), rgba(251,251,253,0))",
         }}
       />
     </div>

@@ -89,32 +89,32 @@ export default function MetricsPanel() {
         <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-[80px]">
           <defs>
             <linearGradient id="metGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#0D6B4E" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="#0D6B4E" stopOpacity="0" />
+              <stop offset="0%" stopColor="#0071E3" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#0071E3" stopOpacity="0" />
             </linearGradient>
           </defs>
           {/* baseline */}
-          <line x1="0" y1={H - 8} x2={W} y2={H - 8} stroke="rgba(14,20,17,0.10)" strokeDasharray="2 4" />
+          <line x1="0" y1={H - 8} x2={W} y2={H - 8} stroke="rgba(29,29,31,0.10)" strokeDasharray="2 4" />
           <path
             d={`${pathFrom(s1, W, H)} L ${W} ${H} L 0 ${H} Z`}
             fill="url(#metGrad)"
             opacity="0.85"
           />
-          <path d={pathFrom(s1, W, H)} stroke="#0D6B4E" strokeWidth="1.6" fill="none" />
-          <path d={pathFrom(s2, W, H)} stroke="rgba(14,20,17,0.45)" strokeWidth="1.1" fill="none" strokeDasharray="3 3" />
+          <path d={pathFrom(s1, W, H)} stroke="#0071E3" strokeWidth="1.6" fill="none" />
+          <path d={pathFrom(s2, W, H)} stroke="rgba(29,29,31,0.45)" strokeWidth="1.1" fill="none" strokeDasharray="3 3" />
           <circle
             className="pulse-end"
             cx={W}
             cy={H - s1[s1.length - 1] * H}
             r="3"
-            fill="#0D6B4E"
+            fill="#0071E3"
           />
         </svg>
       </div>
 
       <div className="mt-2 flex items-center gap-3 mono text-[10px] text-ink/45">
         <span className="flex items-center gap-1.5">
-          <span className="h-px w-3 bg-forge-500" /> resolved
+          <span className="h-px w-3 bg-azure-500" /> resolved
         </span>
         <span className="flex items-center gap-1.5">
           <span className="h-px w-3 bg-ink/40" style={{ borderTop: "1px dashed" }} /> queued
@@ -143,7 +143,7 @@ function Stat({
         <span className="display-tight text-[22px]">{value}</span>
         <span
           className={`mono text-[10.5px] ${
-            deltaTone === "ok" ? "text-forge-600" : "text-signal-rust"
+            deltaTone === "ok" ? "text-azure-600" : "text-signal-rust"
           }`}
         >
           {delta}

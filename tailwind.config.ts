@@ -6,32 +6,32 @@ const config: Config = {
     extend: {
       colors: {
         canvas: {
-          DEFAULT: "#FAFAF8",
-          warm: "#F4F2EC",
-          ink: "#0E1411",
+          DEFAULT: "#FBFBFD",
+          warm: "#F5F5F7",
+          ink: "#1D1D1F",
         },
         ink: {
-          DEFAULT: "#0E1411",
-          70: "rgba(14,20,17,0.70)",
-          55: "rgba(14,20,17,0.55)",
-          40: "rgba(14,20,17,0.40)",
-          18: "rgba(14,20,17,0.18)",
-          10: "rgba(14,20,17,0.10)",
-          "06": "rgba(14,20,17,0.06)",
+          DEFAULT: "#1D1D1F",
+          70: "rgba(29,29,31,0.70)",
+          55: "rgba(29,29,31,0.55)",
+          40: "rgba(29,29,31,0.40)",
+          18: "rgba(29,29,31,0.18)",
+          10: "rgba(29,29,31,0.10)",
+          "06": "rgba(29,29,31,0.06)",
         },
-        forge: {
-          50: "#EAF5F0",
-          100: "#CFE7DA",
-          200: "#9CCFB7",
-          300: "#5DAE8B",
-          400: "#2C8B66",
-          500: "#0D6B4E",
-          600: "#0A5740",
-          700: "#08442F",
-          800: "#06301F",
+        azure: {
+          50: "#EFF5FE",
+          100: "#D9E7FC",
+          200: "#B5CFFA",
+          300: "#7CABF6",
+          400: "#3F88EE",
+          500: "#0071E3",
+          600: "#0057B3",
+          700: "#054089",
+          800: "#03306B",
         },
         signal: {
-          amber: "#C58B22",
+          amber: "#B0852C",
           rust: "#A04A2A",
         },
       },
@@ -46,9 +46,9 @@ const config: Config = {
       },
       backgroundImage: {
         "blueprint-dots":
-          "radial-gradient(rgba(14,20,17,0.10) 1px, transparent 1px)",
+          "radial-gradient(rgba(29,29,31,0.10) 1px, transparent 1px)",
         "blueprint-grid":
-          "linear-gradient(rgba(14,20,17,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(14,20,17,0.05) 1px, transparent 1px)",
+          "linear-gradient(rgba(29,29,31,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(29,29,31,0.05) 1px, transparent 1px)",
       },
       backgroundSize: {
         dots: "22px 22px",

@@ -91,7 +91,7 @@ export default function Nav() {
 
 function Logo() {
   return (
-    <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-forge-500 text-canvas">
+    <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg bg-azure-500 text-canvas">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
         <path
           d="M4 18 L10 6 L14 14 L20 6"

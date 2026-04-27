@@ -109,7 +109,7 @@ export default function Process() {
             <path
               ref={line}
               d="M 20 0 L 20 800"
-              stroke="#0D6B4E"
+              stroke="#0071E3"
               strokeWidth="1.6"
               fill="none"
             />
@@ -124,7 +124,7 @@ export default function Process() {
                 <div className="lg:col-span-2 flex lg:flex-col items-baseline lg:items-start gap-3 lg:gap-1 relative">
                   <span className="step-dot relative inline-flex items-center justify-center h-6 w-6 rounded-full bg-canvas border border-ink/15 mono text-[10px] text-ink/60 lg:absolute lg:-left-3 lg:top-2">
                     {String(i + 1).padStart(2, "0")}
-                    <span className="absolute inset-0 rounded-full bg-forge-500/10" />
+                    <span className="absolute inset-0 rounded-full bg-azure-500/10" />
                   </span>
                   <span className="mono text-[11px] uppercase tracking-[0.18em] text-ink/55 lg:mt-12">
                     {s.week}

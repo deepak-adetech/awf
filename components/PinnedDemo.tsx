@@ -62,7 +62,7 @@ export default function PinnedDemo() {
           });
           progress.forEach((p, i) => {
             p.style.background =
-              i <= idx ? "#0D6B4E" : "rgba(14,20,17,0.12)";
+              i <= idx ? "#0071E3" : "rgba(29,29,31,0.12)";
           });
         },
       });
@@ -108,7 +108,7 @@ export default function PinnedDemo() {
                 className="pd-slide absolute inset-0"
                 style={{ visibility: "visible" }}
               >
-                <div className="mono text-[11px] text-forge-600">
+                <div className="mono text-[11px] text-azure-600">
                   {s.title}
                 </div>
                 <h3
@@ -128,7 +128,7 @@ export default function PinnedDemo() {
               <span
                 key={i}
                 className="pd-tick h-1 w-12 rounded-full transition-colors"
-                style={{ background: i === 0 ? "#0D6B4E" : "rgba(14,20,17,0.12)" }}
+                style={{ background: i === 0 ? "#0071E3" : "rgba(29,29,31,0.12)" }}
               />
             ))}
             <span className="ml-3 mono text-[10.5px] text-ink/45">
@@ -141,12 +141,12 @@ export default function PinnedDemo() {
           <div className="bp-card p-5 relative">
             <div className="flex items-center justify-between mb-3 mono text-[10.5px] text-ink/50">
               <span>cabinet · live-trace · ops-12.flow</span>
-              <span className="text-forge-600">●  recording</span>
+              <span className="text-azure-600">●  recording</span>
             </div>
             <svg viewBox="0 0 720 380" className="w-full h-auto">
               <defs>
                 <pattern id="bp2" width="20" height="20" patternUnits="userSpaceOnUse">
-                  <circle cx="1" cy="1" r="0.8" fill="rgba(14,20,17,0.10)" />
+                  <circle cx="1" cy="1" r="0.8" fill="rgba(29,29,31,0.10)" />
                 </pattern>
               </defs>
               <rect width="720" height="380" fill="url(#bp2)" opacity="0.6" />
@@ -170,14 +170,14 @@ export default function PinnedDemo() {
                     height="44"
                     rx="8"
                     fill="#FFFFFF"
-                    stroke="rgba(14,20,17,0.14)"
+                    stroke="rgba(29,29,31,0.14)"
                   />
-                  <rect x={n.x} y={n.y} width="3" height="44" rx="2" fill="#0D6B4E" />
+                  <rect x={n.x} y={n.y} width="3" height="44" rx="2" fill="#0071E3" />
                   <text
                     x={n.x + 12}
                     y={n.y + 26}
                     fontSize="10.5"
-                    fill="#0E1411"
+                    fill="#1D1D1F"
                     style={{ letterSpacing: "0.06em" }}
                   >
                     {n.label}
@@ -189,25 +189,25 @@ export default function PinnedDemo() {
               <path
                 className="pd-path"
                 d="M 120 82 C 180 82, 200 52, 230 52 M 230 152 C 320 152, 340 102, 430 102 M 520 102 C 560 102, 580 52, 600 52 M 520 102 C 560 102, 580 162, 600 162 M 430 242 C 480 242, 540 272, 600 272"
-                stroke="#0D6B4E"
+                stroke="#0071E3"
                 strokeWidth="1.4"
                 fill="none"
                 opacity="0.65"
                 strokeDasharray="4 6"
               />
-              <circle className="pd-packet" r="5" fill="#0D6B4E" />
+              <circle className="pd-packet" r="5" fill="#0071E3" />
             </svg>
 
             <div className="mt-3 grid grid-cols-3 gap-3 text-[12px]">
-              <div className="border-l border-forge-500/40 pl-3">
+              <div className="border-l border-azure-500/40 pl-3">
                 <div className="mono text-[10px] text-ink/45">queue depth</div>
                 <div className="display-tight text-[22px]">412 → 0</div>
               </div>
-              <div className="border-l border-forge-500/40 pl-3">
+              <div className="border-l border-azure-500/40 pl-3">
                 <div className="mono text-[10px] text-ink/45">first response</div>
                 <div className="display-tight text-[22px]">26s</div>
               </div>
-              <div className="border-l border-forge-500/40 pl-3">
+              <div className="border-l border-azure-500/40 pl-3">
                 <div className="mono text-[10px] text-ink/45">human-in-loop</div>
                 <div className="display-tight text-[22px]">4%</div>
               </div>

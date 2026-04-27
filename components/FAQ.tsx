@@ -82,11 +82,11 @@ export default function FAQ() {
                     <span className="mono text-[11px] text-ink/40 w-8">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="display-tight text-[20px] md:text-[24px] group-hover:text-forge-600 transition-colors">
+                    <span className="display-tight text-[20px] md:text-[24px] group-hover:text-azure-600 transition-colors">
                       {f.q}
                     </span>
                   </span>
-                  <span className="ml-6 inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 text-ink/55 group-hover:border-forge-500/50 group-hover:text-forge-600 transition-colors">
+                  <span className="ml-6 inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 text-ink/55 group-hover:border-azure-500/50 group-hover:text-azure-600 transition-colors">
                     {isOpen ? <Minus size={15} /> : <Plus size={15} />}
                   </span>
                 </button>

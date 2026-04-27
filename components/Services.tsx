@@ -13,28 +13,28 @@ const services = [
     title: "Operations workflows",
     body: "Replace the inbox, the spreadsheet, and the swivel-chair work between them. Inbound triage, document parsing, status routing, daily reconciliations.",
     bullets: ["Inbox + ticket triage", "Document → CRM extraction", "Daily reconciliations"],
-    accent: "forge",
+    accent: "azure",
   },
   {
     code: "02",
     title: "Revenue agents",
     body: "Lead enrichment that adds context (not noise), outbound that respects timing, and CRM hygiene that doesn't decay overnight.",
     bullets: ["Lead enrichment + scoring", "Outbound concierge agents", "CRM data hygiene"],
-    accent: "forge",
+    accent: "azure",
   },
   {
     code: "03",
     title: "Finance & back-office",
     body: "AP/AR, vendor onboarding, invoice matching. We pair LLMs with deterministic rules so the numbers tie.",
     bullets: ["AP / AR automation", "Vendor onboarding", "Invoice ↔ PO matching"],
-    accent: "forge",
+    accent: "azure",
   },
   {
     code: "04",
     title: "Internal copilots",
     body: "A search bar over your ops — SOPs, contracts, customer history — wired to the systems your team already uses.",
     bullets: ["Knowledge copilots", "SOP-aware agents", "Slack-native interfaces"],
-    accent: "forge",
+    accent: "azure",
   },
 ];
 
@@ -91,7 +91,7 @@ export default function Services() {
                 </span>
                 <ArrowUpRight
                   size={18}
-                  className="text-ink/30 group-hover:text-forge-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition"
+                  className="text-ink/30 group-hover:text-azure-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition"
                 />
               </div>
 

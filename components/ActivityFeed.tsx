@@ -24,8 +24,8 @@ const seedRows: Row[] = [
 ];
 
 const badgeStyles: Record<NonNullable<Row["badge"]>, string> = {
-  ok: "bg-forge-500/10 text-forge-700 border-forge-500/20",
-  agent: "bg-forge-700/90 text-canvas border-forge-800",
+  ok: "bg-azure-500/10 text-azure-700 border-azure-500/20",
+  agent: "bg-azure-700/90 text-canvas border-azure-800",
   human: "bg-signal-amber/10 text-signal-amber border-signal-amber/30",
   warn: "bg-signal-rust/10 text-signal-rust border-signal-rust/30",
 };
@@ -70,11 +70,11 @@ export default function ActivityFeed() {
     if (!first) return;
     gsap.fromTo(
       first,
-      { opacity: 0, y: -10, backgroundColor: "rgba(13,107,78,0.08)" },
+      { opacity: 0, y: -10, backgroundColor: "rgba(0,113,227,0.08)" },
       {
         opacity: 1,
         y: 0,
-        backgroundColor: "rgba(13,107,78,0)",
+        backgroundColor: "rgba(0,113,227,0)",
         duration: 0.7,
         ease: "power2.out",
       }
@@ -86,8 +86,8 @@ export default function ActivityFeed() {
       <div className="flex items-center justify-between px-4 py-3 border-b border-ink/10">
         <div className="flex items-center gap-2">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full rounded-full bg-forge-500 opacity-60 animate-ping" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-forge-500" />
+            <span className="absolute inline-flex h-full w-full rounded-full bg-azure-500 opacity-60 animate-ping" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-azure-500" />
           </span>
           <span className="mono text-[10.5px] uppercase tracking-[0.16em] text-ink/60">
             live · ops feed

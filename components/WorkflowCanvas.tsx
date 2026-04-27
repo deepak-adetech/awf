@@ -51,10 +51,10 @@ function nodePath(a: Node, b: Node) {
 }
 
 const kindColor: Record<NonNullable<Node["kind"]>, string> = {
-  input: "#0A5740",
-  logic: "#0E1411",
-  ai: "#0D6B4E",
-  output: "#0A5740",
+  input: "#0057B3",
+  logic: "#1D1D1F",
+  ai: "#0071E3",
+  output: "#0057B3",
 };
 
 export default function WorkflowCanvas() {
@@ -147,16 +147,16 @@ export default function WorkflowCanvas() {
       >
         <defs>
           <linearGradient id="edgeGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#0D6B4E" stopOpacity="0.15" />
-            <stop offset="40%" stopColor="#0D6B4E" stopOpacity="0.95" />
-            <stop offset="100%" stopColor="#0D6B4E" stopOpacity="0.95" />
+            <stop offset="0%" stopColor="#0071E3" stopOpacity="0.15" />
+            <stop offset="40%" stopColor="#0071E3" stopOpacity="0.95" />
+            <stop offset="100%" stopColor="#0071E3" stopOpacity="0.95" />
           </linearGradient>
           <radialGradient id="pktGrad">
-            <stop offset="0%" stopColor="#0D6B4E" />
-            <stop offset="100%" stopColor="#0D6B4E" stopOpacity="0" />
+            <stop offset="0%" stopColor="#0071E3" />
+            <stop offset="100%" stopColor="#0071E3" stopOpacity="0" />
           </radialGradient>
           <pattern id="bp" width="22" height="22" patternUnits="userSpaceOnUse">
-            <circle cx="1" cy="1" r="0.9" fill="rgba(14,20,17,0.10)" />
+            <circle cx="1" cy="1" r="0.9" fill="rgba(29,29,31,0.10)" />
           </pattern>
         </defs>
 
@@ -164,7 +164,7 @@ export default function WorkflowCanvas() {
         <rect x="0" y="0" width="1040" height="410" fill="url(#bp)" opacity="0.55" />
 
         {/* axis ticks */}
-        <g className="wf-axis" stroke="rgba(14,20,17,0.18)" strokeWidth="1">
+        <g className="wf-axis" stroke="rgba(29,29,31,0.18)" strokeWidth="1">
           <line x1="0" y1="0" x2="1040" y2="0" />
           <line x1="0" y1="0" x2="0" y2="410" />
           {Array.from({ length: 10 }).map((_, i) => (
@@ -189,7 +189,7 @@ export default function WorkflowCanvas() {
                   strokeDasharray="480"
                   strokeLinecap="round"
                 />
-                <circle data-pkt={i} className="wf-packet" r="4.5" fill="#0D6B4E" />
+                <circle data-pkt={i} className="wf-packet" r="4.5" fill="#0071E3" />
               </g>
             );
           })}
@@ -205,14 +205,14 @@ export default function WorkflowCanvas() {
               width={NODE_W}
               height={NODE_H}
               fill="#FFFFFF"
-              stroke="rgba(14,20,17,0.12)"
+              stroke="rgba(29,29,31,0.12)"
             />
             <rect x="0" y="0" rx="10" width="4" height={NODE_H} fill={kindColor[n.kind ?? "logic"]} />
             <circle cx={NODE_W - 14} cy={14} r="3.2" fill={kindColor[n.kind ?? "logic"]} />
-            <text x="16" y="24" fontSize="12.5" fontWeight="500" fill="#0E1411">
+            <text x="16" y="24" fontSize="12.5" fontWeight="500" fill="#1D1D1F">
               {n.label}
             </text>
-            <text x="16" y="42" fontSize="10.5" fill="rgba(14,20,17,0.55)">
+            <text x="16" y="42" fontSize="10.5" fill="rgba(29,29,31,0.55)">
               {n.sub}
             </text>
           </g>
@@ -221,24 +221,24 @@ export default function WorkflowCanvas() {
         {/* tags */}
         <g className="wf-tag">
           <g transform="translate(80, 92)">
-            <rect rx="6" width="92" height="18" fill="#0E1411" />
-            <text x="10" y="13" fontSize="10" fill="#FAFAF8" letterSpacing="0.5">
+            <rect rx="6" width="92" height="18" fill="#1D1D1F" />
+            <text x="10" y="13" fontSize="10" fill="#FBFBFD" letterSpacing="0.5">
               TRIGGER · API
             </text>
           </g>
         </g>
         <g className="wf-tag">
           <g transform="translate(580, 112)">
-            <rect rx="6" width="74" height="18" fill="#0D6B4E" />
-            <text x="10" y="13" fontSize="10" fill="#FAFAF8" letterSpacing="0.5">
+            <rect rx="6" width="74" height="18" fill="#0071E3" />
+            <text x="10" y="13" fontSize="10" fill="#FBFBFD" letterSpacing="0.5">
               AGENT · v3
             </text>
           </g>
         </g>
         <g className="wf-tag">
           <g transform="translate(850, 52)">
-            <rect rx="6" width="56" height="18" fill="#0A5740" />
-            <text x="10" y="13" fontSize="10" fill="#FAFAF8" letterSpacing="0.5">
+            <rect rx="6" width="56" height="18" fill="#0057B3" />
+            <text x="10" y="13" fontSize="10" fill="#FBFBFD" letterSpacing="0.5">
               OUTPUT
             </text>
           </g>

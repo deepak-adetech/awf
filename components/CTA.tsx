@@ -65,19 +65,19 @@ export default function CTA() {
       >
         <path
           d="M 0 120 L 600 120 L 600 480 L 1200 480"
-          stroke="rgba(13,107,78,0.18)"
+          stroke="rgba(0,113,227,0.18)"
           strokeWidth="1"
           fill="none"
         />
         <path
           d="M 0 480 L 360 480 L 360 60 L 1200 60"
-          stroke="rgba(14,20,17,0.10)"
+          stroke="rgba(29,29,31,0.10)"
           strokeWidth="1"
           fill="none"
         />
         <path
           d="M 800 0 L 800 240 L 1200 240"
-          stroke="rgba(13,107,78,0.14)"
+          stroke="rgba(0,113,227,0.14)"
           strokeWidth="1"
           fill="none"
         />
@@ -94,7 +94,7 @@ export default function CTA() {
               <span className="block">Show us</span>
               <span className="block">the workflow that&apos;s</span>
               <span className="block">
-                <span className="italic font-light text-forge-600">eating</span> your
+                <span className="italic font-light text-azure-600">eating</span> your
                 team.
               </span>
             </h2>
@@ -112,7 +112,7 @@ export default function CTA() {
                 <div className="mt-2 text-[18px]">hello@autoworkflows.ai</div>
                 <div className="mt-1 mono text-[11.5px] text-ink/50">Replies within 6 hours</div>
               </div>
-              <ArrowUpRight size={20} className="text-ink/40 group-hover:text-forge-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
+              <ArrowUpRight size={20} className="text-ink/40 group-hover:text-azure-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
             </a>
             <a href="#" className="cta-card bp-card p-6 group flex items-center justify-between hover:bg-canvas-warm/40 transition-colors">
               <div>
@@ -120,7 +120,7 @@ export default function CTA() {
                 <div className="mt-2 text-[18px]">30-min discovery call</div>
                 <div className="mt-1 mono text-[11.5px] text-ink/50">Founders + principal engineer · No SDR</div>
               </div>
-              <ArrowUpRight size={20} className="text-ink/40 group-hover:text-forge-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
+              <ArrowUpRight size={20} className="text-ink/40 group-hover:text-azure-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
             </a>
             <a href="#" className="cta-card bp-card p-6 group flex items-center justify-between hover:bg-canvas-warm/40 transition-colors">
               <div>
@@ -128,7 +128,7 @@ export default function CTA() {
                 <div className="mt-2 text-[18px]">Loom us your worst workflow</div>
                 <div className="mt-1 mono text-[11.5px] text-ink/50">We send a written response, not a sales pitch</div>
               </div>
-              <ArrowUpRight size={20} className="text-ink/40 group-hover:text-forge-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
+              <ArrowUpRight size={20} className="text-ink/40 group-hover:text-azure-600 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
             </a>
           </div>
         </div>

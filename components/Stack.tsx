@@ -87,7 +87,7 @@ export default function Stack() {
                 {l.items.map((it) => (
                   <span
                     key={it}
-                    className="stack-pill text-[12.5px] px-3.5 py-2 rounded-full border border-ink/10 hover:border-forge-500/40 hover:bg-forge-50/40 transition-colors mono"
+                    className="stack-pill text-[12.5px] px-3.5 py-2 rounded-full border border-ink/10 hover:border-azure-500/40 hover:bg-azure-50/40 transition-colors mono"
                   >
                     {it}
                   </span>
@@ -102,7 +102,7 @@ export default function Stack() {
             <span className="chip"><span className="chip-dot" /> SOC2 Type II in progress · Q3</span>
             <span className="chip"><span className="chip-dot" /> Self-hosted option available</span>
           </div>
-          <a href="#contact" className="text-forge-600 hover:text-forge-700">
+          <a href="#contact" className="text-azure-600 hover:text-azure-700">
             Architecture Q&amp;A with our principal engineer →
           </a>
         </div>

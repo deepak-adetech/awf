@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-5">
             <div className="display text-[44px] md:text-[64px] leading-[0.95]">
-              AutoWorkflows<span className="text-forge-500">.</span>
+              AutoWorkflows<span className="text-azure-500">.</span>
             </div>
             <p className="mt-5 max-w-[420px] text-[14.5px] text-ink/60 leading-[1.6]">
               An operations-first AI studio. We design, build, and run AI
@@ -23,28 +23,28 @@ export default function Footer() {
           <div className="lg:col-span-2 lg:col-start-7">
             <div className="eyebrow mb-5">Studio</div>
             <ul className="space-y-3 text-[14px]">
-              <li><a href="#services" className="hover:text-forge-600">What we build</a></li>
-              <li><a href="#process" className="hover:text-forge-600">Process</a></li>
-              <li><a href="#results" className="hover:text-forge-600">Case work</a></li>
-              <li><a href="#stack" className="hover:text-forge-600">The stack</a></li>
+              <li><a href="#services" className="hover:text-azure-600">What we build</a></li>
+              <li><a href="#process" className="hover:text-azure-600">Process</a></li>
+              <li><a href="#results" className="hover:text-azure-600">Case work</a></li>
+              <li><a href="#stack" className="hover:text-azure-600">The stack</a></li>
             </ul>
           </div>
           <div className="lg:col-span-2">
             <div className="eyebrow mb-5">Library</div>
             <ul className="space-y-3 text-[14px]">
-              <li><a href="#" className="hover:text-forge-600">Field notes</a></li>
-              <li><a href="#" className="hover:text-forge-600">Open-source</a></li>
-              <li><a href="#" className="hover:text-forge-600">Hiring · 3 roles</a></li>
-              <li><a href="#" className="hover:text-forge-600">Press kit</a></li>
+              <li><a href="#" className="hover:text-azure-600">Field notes</a></li>
+              <li><a href="#" className="hover:text-azure-600">Open-source</a></li>
+              <li><a href="#" className="hover:text-azure-600">Hiring · 3 roles</a></li>
+              <li><a href="#" className="hover:text-azure-600">Press kit</a></li>
             </ul>
           </div>
           <div className="lg:col-span-3">
             <div className="eyebrow mb-5">Reach</div>
             <ul className="space-y-3 text-[14px]">
-              <li><a href="mailto:hello@autoworkflows.ai" className="hover:text-forge-600">hello@autoworkflows.ai</a></li>
-              <li><a href="#" className="hover:text-forge-600">@autoworkflows on X</a></li>
-              <li><a href="#" className="hover:text-forge-600">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-forge-600">Status · all systems normal</a></li>
+              <li><a href="mailto:hello@autoworkflows.ai" className="hover:text-azure-600">hello@autoworkflows.ai</a></li>
+              <li><a href="#" className="hover:text-azure-600">@autoworkflows on X</a></li>
+              <li><a href="#" className="hover:text-azure-600">LinkedIn</a></li>
+              <li><a href="#" className="hover:text-azure-600">Status · all systems normal</a></li>
             </ul>
           </div>
         </div>
@@ -70,7 +70,7 @@ export default function Footer() {
             lineHeight: 0.85,
             fontWeight: 300,
             letterSpacing: "-0.04em",
-            color: "rgba(14,20,17,0.045)",
+            color: "rgba(29,29,31,0.045)",
           }}
         >
           autoworkflows

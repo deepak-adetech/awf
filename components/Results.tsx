@@ -116,7 +116,7 @@ export default function Results() {
                 />
                 <a
                   href="#contact"
-                  className="mt-6 inline-flex items-center gap-1 text-[13.5px] text-forge-600 hover:text-forge-700"
+                  className="mt-6 inline-flex items-center gap-1 text-[13.5px] text-azure-600 hover:text-azure-700"
                 >
                   Read the engineering write-up →
                 </a>
@@ -126,7 +126,7 @@ export default function Results() {
                   <div key={k.k} className="border-l border-ink/10 pl-4">
                     <div
                       data-count={k.v}
-                      className="display-tight text-[28px] md:text-[36px] text-forge-600"
+                      className="display-tight text-[28px] md:text-[36px] text-azure-600"
                     >
                       {k.v}
                     </div>

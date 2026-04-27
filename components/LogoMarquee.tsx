@@ -48,7 +48,7 @@ export default function LogoMarquee() {
 
 function Mark() {
   return (
-    <svg viewBox="0 0 24 24" width="20" height="20" className="text-forge-500">
+    <svg viewBox="0 0 24 24" width="20" height="20" className="text-azure-500">
       <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.4" fill="none" />
       <path d="M7 13 L11 16 L17 9" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
