@@ -26,7 +26,7 @@ export default function Nav() {
         scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className="mx-auto max-w-[1100px] px-5">
+      <div className="mx-auto max-w-[1320px] px-5">
         <div
           className={`flex items-center justify-between rounded-full transition-all duration-500 ${
             scrolled ? "nav-glass px-5 py-2" : "px-3 py-1"
@@ -67,33 +67,52 @@ export function Wordmark({ size = 14.5 }: { size?: number }) {
 }
 
 /**
- * Simpler, no-box logo: three rising bars connected by a flow arc.
- * Reads as a workflow / signal mark.
+ * Logo: a 3-node agent network. Two sources converge into a larger
+ * output node — a stylized workflow/agent mark. Bold, geometric, no box.
  */
 function Logo() {
   return (
     <span className="relative inline-flex items-center justify-center" aria-label="AutoWorkFlow.AI">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
         <defs>
-          <linearGradient id="logoGrad" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0%" stopColor="#0071E3" />
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#0A84FF" />
             <stop offset="55%" stopColor="#5E5CE6" />
             <stop offset="100%" stopColor="#BF5AF2" />
           </linearGradient>
+          <radialGradient id="logoCore" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+          </radialGradient>
         </defs>
-        {/* three rising bars */}
-        <rect x="3"  y="14" width="3" height="7" rx="1.2" fill="url(#logoGrad)" />
-        <rect x="10.5" y="9"  width="3" height="12" rx="1.2" fill="url(#logoGrad)" />
-        <rect x="18" y="4"  width="3" height="17" rx="1.2" fill="url(#logoGrad)" />
-        {/* connecting flow arc */}
+        {/* edges — thin, deliberate */}
         <path
-          d="M 4.5 12 C 8 6, 13 9, 19.5 3"
+          d="M 5 6 L 19 6"
           stroke="url(#logoGrad)"
           strokeWidth="1.6"
           strokeLinecap="round"
-          fill="none"
-          opacity="0.55"
+          opacity="0.45"
         />
+        <path
+          d="M 5 6 L 12 18"
+          stroke="url(#logoGrad)"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          opacity="0.45"
+        />
+        <path
+          d="M 19 6 L 12 18"
+          stroke="url(#logoGrad)"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          opacity="0.45"
+        />
+        {/* source nodes */}
+        <circle cx="5" cy="6" r="2.6" fill="url(#logoGrad)" />
+        <circle cx="19" cy="6" r="2.6" fill="url(#logoGrad)" />
+        {/* output / agent node — larger, with inner highlight */}
+        <circle cx="12" cy="18" r="4.4" fill="url(#logoGrad)" />
+        <circle cx="12" cy="18" r="4.4" fill="url(#logoCore)" />
       </svg>
     </span>
   );
