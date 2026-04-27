@@ -7,7 +7,7 @@ import MiniWorkflow from "./MiniWorkflow";
 
 const titleLines: { words: string[]; accent?: string }[] = [
   { words: ["AI", "workflows"] },
-  { words: ["that", "just", "work."], accent: "just" },
+  { words: ["that", "just", "work"], accent: "just" },
 ];
 
 export default function Hero() {
@@ -83,9 +83,7 @@ export default function Hero() {
                       style={isAccent ? { fontWeight: 300 } : undefined}
                     >
                       {w}
-                      {isLastWord && (
-                        <span className="caret align-middle ml-2 hidden md:inline-block" />
-                      )}
+                      {isLastWord && <span className="blink-dot">.</span>}
                     </span>
                   </span>
                 );
