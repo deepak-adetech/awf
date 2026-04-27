@@ -9,33 +9,35 @@ type Node = {
   y: number;
   label: string;
   sub?: string;
-  kind: "input" | "logic" | "ai" | "output";
+  kind: "input" | "logic" | "ai" | "review" | "output";
 };
 type Edge = { from: string; to: string };
 
-const NODE_W = 140;
-const NODE_H = 52;
+const NODE_W = 132;
+const NODE_H = 50;
 
+// Clean 5-column DAG, all edges flow left-to-right.
+// col 1 → col 2 (split) → col 3 (agent) → col 4 (review) → col 5 (fan-out)
 const nodes: Node[] = [
-  { id: "intake", x: 40, y: 110, label: "Intake", sub: "API · Email", kind: "input" },
-  { id: "classify", x: 250, y: 50, label: "Classify", sub: "Tier + intent", kind: "logic" },
-  { id: "extract", x: 250, y: 180, label: "Extract", sub: "Fields · entities", kind: "logic" },
-  { id: "agent", x: 460, y: 115, label: "AI Agent v3", sub: "Tools · memory", kind: "ai" },
-  { id: "review", x: 460, y: 245, label: "Review", sub: "Edge cases · 4%", kind: "logic" },
-  { id: "crm", x: 670, y: 60, label: "CRM update", sub: "HubSpot", kind: "output" },
-  { id: "ticket", x: 670, y: 165, label: "Ticket", sub: "Linear", kind: "output" },
-  { id: "notify", x: 670, y: 270, label: "Notify", sub: "Slack #ops", kind: "output" },
+  { id: "intake",   x: 24,  y: 145, label: "Intake",      sub: "API · Email",      kind: "input"  },
+  { id: "classify", x: 196, y: 70,  label: "Classify",    sub: "Tier · intent",    kind: "logic"  },
+  { id: "extract",  x: 196, y: 220, label: "Extract",     sub: "Fields · entities", kind: "logic"  },
+  { id: "agent",    x: 368, y: 145, label: "AI Agent v3", sub: "Tools · memory",   kind: "ai"     },
+  { id: "review",   x: 540, y: 145, label: "Review gate", sub: "Edge cases · 4%",  kind: "review" },
+  { id: "crm",      x: 712, y: 50,  label: "CRM update",  sub: "HubSpot",          kind: "output" },
+  { id: "ticket",   x: 712, y: 145, label: "Ticket",      sub: "Linear",           kind: "output" },
+  { id: "notify",   x: 712, y: 240, label: "Notify",      sub: "Slack #ops",       kind: "output" },
 ];
 
 const edges: Edge[] = [
-  { from: "intake", to: "classify" },
-  { from: "intake", to: "extract" },
-  { from: "classify", to: "agent" },
-  { from: "extract", to: "agent" },
-  { from: "agent", to: "crm" },
-  { from: "agent", to: "ticket" },
-  { from: "agent", to: "review" },
-  { from: "review", to: "notify" },
+  { from: "intake",   to: "classify" },
+  { from: "intake",   to: "extract"  },
+  { from: "classify", to: "agent"    },
+  { from: "extract",  to: "agent"    },
+  { from: "agent",    to: "review"   },
+  { from: "review",   to: "crm"      },
+  { from: "review",   to: "ticket"   },
+  { from: "review",   to: "notify"   },
 ];
 
 function nodePath(a: Node, b: Node) {
@@ -48,9 +50,10 @@ function nodePath(a: Node, b: Node) {
 }
 
 const kindColor: Record<Node["kind"], string> = {
-  input: "#0057B3",
-  logic: "#1D1D1F",
-  ai: "#0071E3",
+  input:  "#0057B3",
+  logic:  "#1D1D1F",
+  ai:     "#0071E3",
+  review: "#5E5CE6",
   output: "#0057B3",
 };
 
@@ -61,7 +64,6 @@ export default function MiniWorkflow() {
     const ctx = gsap.context(() => {
       gsap.set(".mw-edge", { strokeDashoffset: 480, opacity: 0 });
       gsap.set(".mw-node", { opacity: 0, y: 6, scale: 0.95, transformOrigin: "50% 50%" });
-      gsap.set(".mw-tag", { opacity: 0, y: -2 });
 
       const tl = gsap.timeline({ defaults: { ease: "power2.out" }, delay: 0.15 });
       tl.to(".mw-node", { opacity: 1, y: 0, scale: 1, duration: 0.55, stagger: 0.07 });
@@ -70,12 +72,9 @@ export default function MiniWorkflow() {
         { strokeDashoffset: 0, opacity: 1, duration: 0.85, stagger: 0.06 },
         "-=0.45"
       );
-      tl.to(".mw-tag", { opacity: 1, y: 0, duration: 0.4, stagger: 0.05 }, "-=0.4");
 
       gsap.utils.toArray<SVGPathElement>(".mw-edge").forEach((path, i) => {
-        const pkt = path.parentElement?.querySelector(`[data-mwpkt='${i}']`) as
-          | SVGCircleElement
-          | null;
+        const pkt = document.querySelector<SVGCircleElement>(`[data-mwpkt='${i}']`);
         if (!pkt) return;
         const len = path.getTotalLength();
         gsap.set(pkt, { opacity: 0 });
@@ -118,36 +117,72 @@ export default function MiniWorkflow() {
     >
       <defs>
         <linearGradient id="mwEdge" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="#0071E3" stopOpacity="0.18" />
-          <stop offset="40%" stopColor="#0071E3" stopOpacity="0.95" />
+          <stop offset="0%"  stopColor="#0071E3" stopOpacity="0.35" />
           <stop offset="100%" stopColor="#0071E3" stopOpacity="0.95" />
         </linearGradient>
         <pattern id="mwBg" width="22" height="22" patternUnits="userSpaceOnUse">
           <circle cx="1" cy="1" r="0.85" fill="rgba(29,29,31,0.10)" />
         </pattern>
         <radialGradient id="mwGlow" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#0071E3" stopOpacity="0.18" />
+          <stop offset="0%"   stopColor="#0071E3" stopOpacity="0.16" />
           <stop offset="100%" stopColor="#0071E3" stopOpacity="0" />
         </radialGradient>
       </defs>
 
       <rect width="850" height="340" fill="url(#mwBg)" opacity="0.55" />
-      <ellipse cx="460" cy="170" rx="280" ry="160" fill="url(#mwGlow)" />
+      <ellipse cx="425" cy="170" rx="320" ry="160" fill="url(#mwGlow)" />
 
-      {/* edges */}
-      <g fill="none" stroke="url(#mwEdge)" strokeWidth="1.6">
+      {/* edges — drawn first so nodes layer on top */}
+      <g fill="none" stroke="url(#mwEdge)" strokeWidth="1.6" strokeLinecap="round">
         {edges.map((e, i) => {
           const a = nodes.find((n) => n.id === e.from)!;
           const b = nodes.find((n) => n.id === e.to)!;
           return (
-            <g key={i}>
-              <path
-                d={nodePath(a, b)}
-                className="mw-edge"
-                strokeDasharray="480"
-                strokeLinecap="round"
-              />
-              <circle data-mwpkt={i} className="mw-packet" r="4.5" fill="#0071E3" />
+            <path
+              key={i}
+              d={nodePath(a, b)}
+              className="mw-edge"
+              strokeDasharray="480"
+            />
+          );
+        })}
+      </g>
+
+      {/* packets ride the edges */}
+      <g>
+        {edges.map((_, i) => (
+          <circle key={i} data-mwpkt={i} className="mw-packet" r="4.5" fill="#0071E3" />
+        ))}
+      </g>
+
+      {/* connection ports — small dots on each node's left + right side
+          to make the wiring read as "linked" rather than scattered */}
+      <g>
+        {nodes.map((n) => {
+          const showLeft = edges.some((e) => e.to === n.id);
+          const showRight = edges.some((e) => e.from === n.id);
+          return (
+            <g key={`port-${n.id}`}>
+              {showLeft && (
+                <circle
+                  cx={n.x}
+                  cy={n.y + NODE_H / 2}
+                  r="3"
+                  fill="#FFFFFF"
+                  stroke="#0071E3"
+                  strokeWidth="1.4"
+                />
+              )}
+              {showRight && (
+                <circle
+                  cx={n.x + NODE_W}
+                  cy={n.y + NODE_H / 2}
+                  r="3"
+                  fill="#FFFFFF"
+                  stroke="#0071E3"
+                  strokeWidth="1.4"
+                />
+              )}
             </g>
           );
         })}
@@ -163,44 +198,18 @@ export default function MiniWorkflow() {
             width={NODE_W}
             height={NODE_H}
             fill="#FFFFFF"
-            stroke="rgba(29,29,31,0.12)"
+            stroke="rgba(29,29,31,0.14)"
           />
           <rect x="0" y="0" rx="9" width="3.5" height={NODE_H} fill={kindColor[n.kind]} />
           <circle cx={NODE_W - 12} cy={12} r="2.6" fill={kindColor[n.kind]} />
           <text x="14" y="22" fontSize="11.5" fontWeight="500" fill="#1D1D1F">
             {n.label}
           </text>
-          <text x="14" y="38" fontSize="9.5" fill="rgba(29,29,31,0.55)">
+          <text x="14" y="37" fontSize="9.5" fill="rgba(29,29,31,0.55)">
             {n.sub}
           </text>
         </g>
       ))}
-
-      {/* floating tags */}
-      <g className="mw-tag">
-        <g transform="translate(40, 90)">
-          <rect rx="6" width="86" height="18" fill="#1D1D1F" />
-          <text x="10" y="13" fontSize="9.5" fill="#FBFBFD" letterSpacing="0.5">
-            TRIGGER · API
-          </text>
-        </g>
-      </g>
-      <g className="mw-tag">
-        <g transform="translate(460, 95)">
-          <rect rx="6" width="68" height="18" fill="#0071E3" />
-          <text x="10" y="13" fontSize="9.5" fill="#FBFBFD" letterSpacing="0.5">
-            AGENT · v3
-          </text>
-        </g>
-      </g>
-      <g className="mw-tag">
-        <g transform="translate(670, 40)">
-          <rect rx="6" width="56" height="18" fill="#0057B3" />
-          <text x="10" y="13" fontSize="9.5" fill="#FBFBFD" letterSpacing="0.5">
-            OUTPUT
-          </text>
-        </g>
-      </g>
     </svg>
   );
 }
