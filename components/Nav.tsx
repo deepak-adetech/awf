@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
 
 const items = [
   { label: "What we build", href: "#services" },
@@ -27,15 +26,13 @@ export default function Nav() {
         scrolled ? "py-3" : "py-5"
       }`}
     >
-      <div className="mx-auto max-w-[1320px] px-5">
+      <div className="mx-auto max-w-[1100px] px-5">
         <div
-          className={`flex items-center justify-between rounded-full border transition-all duration-500 ${
-            scrolled
-              ? "border-ink/10 bg-canvas/85 backdrop-blur-xl px-3 py-2"
-              : "border-transparent bg-transparent px-2 py-1"
+          className={`flex items-center justify-between rounded-full transition-all duration-500 ${
+            scrolled ? "nav-glass px-5 py-2" : "px-3 py-1"
           }`}
         >
-          <a href="#" className="flex items-center gap-2.5 pl-2">
+          <a href="#" className="flex items-center gap-2.5">
             <Logo />
             <Wordmark />
           </a>
@@ -51,15 +48,6 @@ export default function Nav() {
               </a>
             ))}
           </nav>
-
-          <div className="flex items-center gap-2 pr-1">
-            <a href="#contact" className="btn-ghost hidden sm:inline-flex">
-              Login
-            </a>
-            <a href="#contact" className="btn-primary">
-              Book audit <ArrowUpRight size={15} />
-            </a>
-          </div>
         </div>
       </div>
     </header>

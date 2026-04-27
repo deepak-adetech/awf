@@ -18,11 +18,9 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.from(".h-tag", { y: 8, opacity: 0, duration: 0.55, delay: 0.15 });
       tl.from(
         ".h-word",
-        { y: 56, opacity: 0, duration: 0.9, stagger: 0.05 },
-        "-=0.25"
+        { y: 56, opacity: 0, duration: 0.9, stagger: 0.05, delay: 0.1 }
       );
       tl.from(".h-sub", { y: 14, opacity: 0, duration: 0.7 }, "-=0.5");
       tl.from(
@@ -58,14 +56,7 @@ export default function Hero() {
       <div className="absolute inset-0 hero-gradient-bg pointer-events-none" />
 
       <div className="relative mx-auto max-w-[1200px] px-5">
-        {/* Tag */}
-        <div className="h-tag flex items-center justify-center gap-2 mono text-[11px] uppercase tracking-[0.18em] text-ink/55">
-          <span className="h-px w-8 bg-ink/15" />
-          <span>AutoWorkFlow.AI · Studio · 2026</span>
-          <span className="h-px w-8 bg-ink/15" />
-        </div>
-
-        <h1 className="relative mt-7 md:mt-8 display text-[44px] sm:text-[64px] md:text-[80px] lg:text-[96px] leading-[0.98] tracking-tightest text-center">
+        <h1 className="relative mt-8 md:mt-10 display text-[44px] sm:text-[64px] md:text-[80px] lg:text-[96px] leading-[0.98] tracking-tightest text-center">
           {titleLines.map((line, li) => (
             <span key={li} className="block">
               {line.map((w, wi) => {

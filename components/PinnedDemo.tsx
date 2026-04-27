@@ -74,12 +74,24 @@ export default function PinnedDemo() {
       ScrollTrigger.create({
         trigger: root.current,
         start: "top top",
-        end: () => `+=${total * 95}%`,
+        end: () => `+=${total * 45}%`,
         pin: true,
-        scrub: 0.5,
+        scrub: 0.15,
         anticipatePin: 1,
+        snap: {
+          snapTo: (value) => {
+            const segment = 1 / (total - 1);
+            return Math.round(value / segment) * segment;
+          },
+          duration: { min: 0.18, max: 0.35 },
+          delay: 0.05,
+          ease: "power2.out",
+        },
         onUpdate: (self) => {
-          const idx = Math.min(total - 1, Math.floor(self.progress * total));
+          const idx = Math.min(
+            total - 1,
+            Math.round(self.progress * (total - 1))
+          );
 
           // Crossfade text slides
           slides.forEach((s, i) => {
