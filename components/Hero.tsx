@@ -5,10 +5,9 @@ import { gsap } from "gsap";
 import { ArrowUpRight } from "lucide-react";
 import MiniWorkflow from "./MiniWorkflow";
 
-const titleLines: string[][] = [
-  ["AI", "workflows", "that"],
-  ["quietly", "run"],
-  ["your", "operations."],
+const titleLines: { words: string[]; accent?: string }[] = [
+  { words: ["AI", "workflows"] },
+  { words: ["that", "just", "work."], accent: "just" },
 ];
 
 export default function Hero() {
@@ -18,10 +17,13 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.from(
-        ".h-word",
-        { y: 56, opacity: 0, duration: 0.9, stagger: 0.05, delay: 0.1 }
-      );
+      tl.from(".h-word", {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.06,
+        delay: 0.1,
+      });
       tl.from(".h-sub", { y: 14, opacity: 0, duration: 0.7 }, "-=0.5");
       tl.from(
         ".h-cta > *",
@@ -50,32 +52,34 @@ export default function Hero() {
   return (
     <section
       ref={root}
-      className="relative pt-28 md:pt-32 pb-16 md:pb-24 overflow-hidden"
+      className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden"
     >
       <div className="aurora" aria-hidden />
       <div className="absolute inset-0 hero-gradient-bg pointer-events-none" />
 
       <div className="relative mx-auto max-w-[1200px] px-5">
-        <h1 className="relative mt-8 md:mt-10 display text-[44px] sm:text-[64px] md:text-[80px] lg:text-[96px] leading-[0.98] tracking-tightest text-center">
+        <h1
+          className="relative mt-8 md:mt-12 display text-center text-[56px] sm:text-[88px] md:text-[120px] lg:text-[148px] leading-[0.92]"
+          style={{ fontWeight: 800, letterSpacing: "-0.045em" }}
+        >
           {titleLines.map((line, li) => (
             <span key={li} className="block">
-              {line.map((w, wi) => {
-                const isAccent = w === "quietly";
+              {line.words.map((w, wi) => {
+                const isAccent = w === line.accent;
                 return (
                   <span
                     key={wi}
                     className="inline-block overflow-hidden align-baseline"
                   >
                     <span
-                      className={`h-word inline-block mr-[0.18em] ${
-                        isAccent ? "italic font-light text-gradient-azure" : ""
+                      className={`h-word inline-block mr-[0.16em] ${
+                        isAccent
+                          ? "italic font-light text-gradient-azure"
+                          : ""
                       }`}
+                      style={isAccent ? { fontWeight: 300 } : undefined}
                     >
                       {w}
-                      {li === titleLines.length - 1 &&
-                        wi === line.length - 1 && (
-                          <span className="caret align-middle ml-1.5 hidden md:inline-block" />
-                        )}
                     </span>
                   </span>
                 );
@@ -84,24 +88,26 @@ export default function Hero() {
           ))}
         </h1>
 
-        <p className="h-sub mx-auto mt-7 md:mt-8 max-w-[640px] text-center text-[16px] md:text-[17px] leading-[1.55] text-ink/65">
-          A small studio of operators and engineers. We design, ship, and{" "}
+        <p className="h-sub mx-auto mt-8 md:mt-10 max-w-[560px] text-center text-[16px] md:text-[18px] leading-[1.5] text-ink/65">
+          We design, ship, and{" "}
           <span className="relative inline-block text-ink">
             run
             <span className="absolute left-0 right-0 bottom-[1px] h-[5px] bg-azure-200/70 -z-0" />
           </span>{" "}
-          AI workflows for ops-led companies. Audited blueprints, working
-          software in 30 days.
+          AI workflows for ops-led companies. Working software in 30 days.
         </p>
 
-        <div className="h-cta mt-8 flex flex-wrap items-center justify-center gap-3">
+        <div className="h-cta mt-9 flex flex-wrap items-center justify-center gap-3">
           <a href="#contact" className="btn-grad">
             Book a 30-min audit <ArrowUpRight size={16} />
+          </a>
+          <a href="#process" className="btn-ghost">
+            See how we work
           </a>
         </div>
 
         {/* Full-section workflow showcase */}
-        <div className="mt-16 md:mt-24">
+        <div className="mt-20 md:mt-28">
           <div className="wf-section-head grid lg:grid-cols-12 gap-8 items-end mb-8 md:mb-10">
             <div className="lg:col-span-7">
               <div className="eyebrow flex items-center gap-3">
