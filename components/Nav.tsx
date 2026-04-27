@@ -55,9 +55,6 @@ export default function Nav() {
             <span className="text-[14.5px] font-medium tracking-tight">
               AutoWorkflows
             </span>
-            <span className="ml-2 hidden md:inline-flex chip">
-              <span className="chip-dot" /> v2.4 — shipping
-            </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-1">

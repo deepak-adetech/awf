@@ -65,7 +65,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="services" ref={root as any} className="relative py-28 md:py-36">
+    <section id="services" ref={root as any} className="relative py-16 md:py-24">
       <div className="mx-auto max-w-[1320px] px-5">
         <SectionHeader
           tag="01 · What we build"

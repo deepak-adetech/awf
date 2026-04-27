@@ -52,7 +52,7 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section ref={root as any} className="relative py-28 md:py-36">
+    <section ref={root as any} className="relative py-16 md:py-24">
       <div className="mx-auto max-w-[1320px] px-5">
         <SectionHeader
           tag="05 · The honest part"

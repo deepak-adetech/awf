@@ -84,7 +84,7 @@ export default function Results() {
   }, []);
 
   return (
-    <section id="results" ref={root as any} className="relative py-28 md:py-36 bg-canvas-warm/30">
+    <section id="results" ref={root as any} className="relative py-16 md:py-24 bg-canvas-warm/30">
       <div className="mx-auto max-w-[1320px] px-5">
         <SectionHeader
           tag="03 · Results in production"

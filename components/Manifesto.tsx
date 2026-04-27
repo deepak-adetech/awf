@@ -49,22 +49,13 @@ export default function Manifesto() {
           scrub: 0.4,
         },
       });
-
-      gsap.from(".m-line", {
-        scaleX: 0,
-        transformOrigin: "left center",
-        duration: 1.2,
-        ease: "power2.out",
-        scrollTrigger: { trigger: root.current, start: "top 75%" },
-      });
     }, root);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={root as any} className="relative py-28 md:py-40">
+    <section ref={root as any} className="relative py-20 md:py-28">
       <div className="mx-auto max-w-[1180px] px-5">
-        <div className="m-line h-px w-full bg-ink/15 mb-12" />
         <div className="grid lg:grid-cols-12 gap-10">
           <div className="lg:col-span-3">
             <div className="eyebrow flex items-center gap-3">

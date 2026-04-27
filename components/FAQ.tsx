@@ -54,7 +54,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <section id="field-notes" ref={root as any} className="relative py-28 md:py-36">
+    <section id="field-notes" ref={root as any} className="relative py-16 md:py-24">
       <div className="mx-auto max-w-[1320px] px-5">
         <SectionHeader
           tag="06 · Field notes"

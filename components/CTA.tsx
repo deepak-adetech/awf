@@ -54,7 +54,7 @@ export default function CTA() {
     <section
       id="contact"
       ref={root as any}
-      className="relative py-28 md:py-40 overflow-hidden"
+      className="relative py-20 md:py-28 overflow-hidden"
     >
       {/* Decorative grid lines */}
       <svg

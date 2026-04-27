@@ -57,7 +57,7 @@ export default function Stack() {
   }, []);
 
   return (
-    <section id="stack" ref={root as any} className="relative py-28 md:py-36">
+    <section id="stack" ref={root as any} className="relative py-16 md:py-24">
       <div className="mx-auto max-w-[1320px] px-5">
         <SectionHeader
           tag="04 · The stack"
