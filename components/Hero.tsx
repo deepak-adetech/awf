@@ -66,6 +66,9 @@ export default function Hero() {
             <span key={li} className="block">
               {line.words.map((w, wi) => {
                 const isAccent = w === line.accent;
+                const isLastWord =
+                  li === titleLines.length - 1 &&
+                  wi === line.words.length - 1;
                 return (
                   <span
                     key={wi}
@@ -80,6 +83,9 @@ export default function Hero() {
                       style={isAccent ? { fontWeight: 300 } : undefined}
                     >
                       {w}
+                      {isLastWord && (
+                        <span className="caret align-middle ml-2 hidden md:inline-block" />
+                      )}
                     </span>
                   </span>
                 );
