@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Gift } from "lucide-react";
 import MiniWorkflow from "./MiniWorkflow";
 
 const titleLines: { words: string[]; accent?: string }[] = [
@@ -26,6 +26,11 @@ export default function Hero() {
       });
       tl.from(".h-sub", { y: 14, opacity: 0, duration: 0.7 }, "-=0.5");
       tl.from(
+        ".h-usp",
+        { y: 10, opacity: 0, duration: 0.55 },
+        "-=0.55"
+      );
+      tl.from(
         ".h-cta > *",
         { y: 12, opacity: 0, duration: 0.55, stagger: 0.07 },
         "-=0.45"
@@ -45,6 +50,32 @@ export default function Hero() {
         { y: 8, opacity: 0, duration: 0.5, stagger: 0.06 },
         "-=0.5"
       );
+
+      // Drift the decorative artwork gently
+      gsap.to(".h-art-1", {
+        y: 14,
+        rotate: 6,
+        duration: 8,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+      gsap.to(".h-art-2", {
+        y: -10,
+        rotate: -4,
+        duration: 9.5,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+      gsap.to(".h-art-3", {
+        x: 8,
+        rotate: 3,
+        duration: 11,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
     }, root);
     return () => ctx.revert();
   }, []);
@@ -56,6 +87,9 @@ export default function Hero() {
     >
       <div className="aurora" aria-hidden />
       <div className="absolute inset-0 hero-gradient-bg pointer-events-none" />
+
+      {/* Decorative artwork — abstract curls, dotted clusters, lightning */}
+      <HeroArt />
 
       <div className="relative mx-auto max-w-[1200px] px-5">
         <h1
@@ -73,12 +107,13 @@ export default function Hero() {
                   <span
                     key={wi}
                     className="inline-block overflow-hidden align-baseline"
+                    style={isAccent ? { paddingRight: "0.18em" } : undefined}
                   >
                     <span
-                      className={`h-word inline-block mr-[0.16em] ${
+                      className={`h-word inline-block ${
                         isAccent
-                          ? "italic font-light text-gradient-azure"
-                          : ""
+                          ? "italic font-light text-gradient-azure mr-[0.22em] pr-[0.08em]"
+                          : "mr-[0.16em]"
                       }`}
                       style={isAccent ? { fontWeight: 300 } : undefined}
                     >
@@ -101,13 +136,21 @@ export default function Hero() {
           AI workflows for ops-led companies. Working software in 30 days.
         </p>
 
-        <div className="h-cta mt-9 flex flex-wrap items-center justify-center gap-3">
+        <div className="h-cta mt-9 flex flex-col items-center gap-4">
           <a href="#contact" className="btn-grad">
-            Book a 30-min audit <ArrowUpRight size={16} />
+            Claim your free workflow <ArrowUpRight size={16} />
           </a>
-          <a href="#process" className="btn-ghost">
-            See how we work
-          </a>
+          <span className="h-usp inline-flex items-center gap-2 mono text-[12px] tracking-[0.04em] text-ink/65">
+            <Gift size={13} className="text-azure-600" />
+            <span>
+              Your first workflow is{" "}
+              <span className="relative inline-block text-ink font-medium">
+                on us
+                <span className="absolute left-0 right-0 bottom-[1px] h-[5px] bg-azure-200/70 -z-0" />
+              </span>
+              {" "}— no fee, no contract.
+            </span>
+          </span>
         </div>
 
         {/* Full-section workflow showcase */}
@@ -179,6 +222,170 @@ function Meta({ k, v }: { k: string; v: string }) {
         {k}
       </div>
       <div className="display-tight text-[22px] md:text-[28px]">{v}</div>
+    </div>
+  );
+}
+
+/**
+ * Decorative artwork — abstract curls, dotted clusters, lightning bolts,
+ * and stripe arcs scattered behind the hero. Pure SVG, pointer-events: none,
+ * doesn't change the page background.
+ */
+function HeroArt() {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+    >
+      {/* Top-left zigzag lightning */}
+      <svg
+        className="h-art-1 absolute left-[4%] top-[14%] hidden md:block"
+        width="58"
+        height="110"
+        viewBox="0 0 58 110"
+        fill="none"
+      >
+        <path
+          d="M 30 4 L 12 50 L 32 56 L 14 106"
+          stroke="#1D1D1F"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          opacity="0.55"
+        />
+      </svg>
+
+      {/* Striped circle (top-mid-left) */}
+      <svg
+        className="h-art-2 absolute left-[26%] top-[18%] hidden lg:block"
+        width="70"
+        height="70"
+        viewBox="0 0 70 70"
+      >
+        <defs>
+          <pattern
+            id="heroStripes"
+            patternUnits="userSpaceOnUse"
+            width="6"
+            height="6"
+            patternTransform="rotate(45)"
+          >
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#0071E3" strokeWidth="2" />
+          </pattern>
+        </defs>
+        <circle cx="35" cy="35" r="32" fill="url(#heroStripes)" opacity="0.7" />
+      </svg>
+
+      {/* Dotted half-circle (top-right) */}
+      <svg
+        className="h-art-3 absolute right-[5%] top-[20%] hidden md:block"
+        width="120"
+        height="120"
+        viewBox="0 0 120 120"
+      >
+        {Array.from({ length: 11 }).map((_, row) =>
+          Array.from({ length: 11 }).map((_, col) => {
+            const x = col * 11 + 6;
+            const y = row * 11 + 6;
+            const dx = x - 60;
+            const dy = y - 60;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d > 56) return null;
+            const fade = Math.max(0, 1 - d / 56);
+            return (
+              <circle
+                key={`${row}-${col}`}
+                cx={x}
+                cy={y}
+                r="1.4"
+                fill="#5E5CE6"
+                opacity={0.18 + fade * 0.45}
+              />
+            );
+          })
+        )}
+      </svg>
+
+      {/* Quarter-arc (right edge, mid) */}
+      <svg
+        className="h-art-1 absolute right-[2%] top-[44%] hidden md:block"
+        width="180"
+        height="220"
+        viewBox="0 0 180 220"
+        fill="none"
+      >
+        <path
+          d="M 178 2 C 100 30, 40 90, 14 218"
+          stroke="#1D1D1F"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          opacity="0.35"
+        />
+      </svg>
+
+      {/* Bottom-left arc */}
+      <svg
+        className="h-art-2 absolute left-[3%] bottom-[18%] hidden md:block"
+        width="200"
+        height="160"
+        viewBox="0 0 200 160"
+        fill="none"
+      >
+        <path
+          d="M 4 158 C 70 110, 140 60, 196 4"
+          stroke="#1D1D1F"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          opacity="0.32"
+        />
+      </svg>
+
+      {/* Tiny dot cluster (bottom-mid-left) */}
+      <svg
+        className="h-art-3 absolute left-[34%] bottom-[14%] hidden md:block"
+        width="60"
+        height="60"
+        viewBox="0 0 60 60"
+      >
+        {[
+          [10, 12], [22, 8], [34, 14], [16, 24], [30, 26], [42, 22],
+          [22, 38], [36, 40], [12, 46], [44, 44], [26, 52],
+        ].map(([cx, cy], i) => (
+          <circle key={i} cx={cx} cy={cy} r="1.6" fill="#0071E3" opacity="0.55" />
+        ))}
+      </svg>
+
+      {/* Spark / sparkle (top-far-right) */}
+      <svg
+        className="h-art-1 absolute right-[18%] top-[8%] hidden lg:block"
+        width="34"
+        height="34"
+        viewBox="0 0 34 34"
+        fill="none"
+      >
+        <path
+          d="M 17 3 C 17 13, 17 13, 31 17 C 17 21, 17 21, 17 31 C 17 21, 17 21, 3 17 C 17 13, 17 13, 17 3 Z"
+          fill="#BF5AF2"
+          opacity="0.55"
+        />
+      </svg>
+
+      {/* Mini squiggle (bottom-right) */}
+      <svg
+        className="h-art-2 absolute right-[12%] bottom-[24%] hidden md:block"
+        width="80"
+        height="30"
+        viewBox="0 0 80 30"
+        fill="none"
+      >
+        <path
+          d="M 2 15 C 12 2, 22 28, 32 15 S 52 2, 62 15 S 76 28, 78 15"
+          stroke="#0071E3"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          opacity="0.5"
+        />
+      </svg>
     </div>
   );
 }

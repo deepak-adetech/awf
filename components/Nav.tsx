@@ -67,52 +67,54 @@ export function Wordmark({ size = 14.5 }: { size?: number }) {
 }
 
 /**
- * Logo: a 3-node agent network. Two sources converge into a larger
- * output node — a stylized workflow/agent mark. Bold, geometric, no box.
+ * Logo: an AI sparkle mark — a bold, rounded 4-pointed star with a small
+ * companion sparkle. Gradient fill, inner highlight. Reads as "AI / spark
+ * of intelligence", simple and brand-feeling.
  */
 function Logo() {
   return (
     <span className="relative inline-flex items-center justify-center" aria-label="AutoWorkFlow.AI">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
         <defs>
           <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#0A84FF" />
             <stop offset="55%" stopColor="#5E5CE6" />
             <stop offset="100%" stopColor="#BF5AF2" />
           </linearGradient>
-          <radialGradient id="logoCore" cx="50%" cy="40%" r="60%">
-            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
+          <radialGradient id="logoCore" cx="50%" cy="40%" r="55%">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.7" />
             <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </radialGradient>
         </defs>
-        {/* edges — thin, deliberate */}
+        {/* main 4-pointed sparkle, drawn with cubic curves so the points
+            taper smoothly into a soft bowed-in waist — like an "AI star" */}
         <path
-          d="M 5 6 L 19 6"
-          stroke="url(#logoGrad)"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-          opacity="0.45"
+          d="M 15 2
+             C 15 11, 15 11, 26 14
+             C 15 17, 15 17, 15 26
+             C 15 17, 15 17, 4 14
+             C 15 11, 15 11, 15 2 Z"
+          fill="url(#logoGrad)"
         />
+        {/* inner highlight on the main sparkle */}
         <path
-          d="M 5 6 L 12 18"
-          stroke="url(#logoGrad)"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-          opacity="0.45"
+          d="M 15 2
+             C 15 11, 15 11, 26 14
+             C 15 17, 15 17, 15 26
+             C 15 17, 15 17, 4 14
+             C 15 11, 15 11, 15 2 Z"
+          fill="url(#logoCore)"
         />
+        {/* small companion sparkle, top-right — gives the "AI shimmer" feel */}
         <path
-          d="M 19 6 L 12 18"
-          stroke="url(#logoGrad)"
-          strokeWidth="1.6"
-          strokeLinecap="round"
-          opacity="0.45"
+          d="M 24 4
+             C 24 7, 24 7, 27 8
+             C 24 9, 24 9, 24 12
+             C 24 9, 24 9, 21 8
+             C 24 7, 24 7, 24 4 Z"
+          fill="url(#logoGrad)"
+          opacity="0.85"
         />
-        {/* source nodes */}
-        <circle cx="5" cy="6" r="2.6" fill="url(#logoGrad)" />
-        <circle cx="19" cy="6" r="2.6" fill="url(#logoGrad)" />
-        {/* output / agent node — larger, with inner highlight */}
-        <circle cx="12" cy="18" r="4.4" fill="url(#logoGrad)" />
-        <circle cx="12" cy="18" r="4.4" fill="url(#logoCore)" />
       </svg>
     </span>
   );
