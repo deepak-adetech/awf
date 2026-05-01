@@ -23,17 +23,7 @@ export function NumbersSection() {
   }, []);
 
   return (
-    <section
-      className="dynamic-section-padding bg-white"
-      style={
-        {
-          "--mobile-pt": "60px",
-          "--mobile-pb": "60px",
-          "--desktop-pt": "73px",
-          "--desktop-pb": "73px",
-        } as React.CSSProperties
-      }
-    >
+    <section className="dynamic-section-padding bg-white">
       <div className="mx-auto max-w-[1248px] px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 lg:gap-16 items-center">
           {/* LEFT: Title block */}

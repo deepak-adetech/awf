@@ -9,15 +9,7 @@ const bullets = [
 
 export function OmniChannelSection() {
   return (
-    <section
-      className="dynamic-section-padding"
-      style={
-        {
-          "--desktop-pt": "104px",
-          "--desktop-pb": "104px",
-        } as React.CSSProperties
-      }
-    >
+    <section className="dynamic-section-padding">
       <div className="mx-auto max-w-[1294px] px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left side */}

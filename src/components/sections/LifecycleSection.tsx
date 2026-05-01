@@ -16,17 +16,7 @@ export function LifecycleSection() {
   const [active, setActive] = useState(lifecycleStages[0].id);
 
   return (
-    <section
-      className="dynamic-section-padding"
-      style={
-        {
-          "--tablet-pt": "80px",
-          "--tablet-pb": "80px",
-          "--desktop-pt": "242px",
-          "--desktop-pb": "242px",
-        } as React.CSSProperties
-      }
-    >
+    <section className="dynamic-section-padding">
       <div className="mx-auto max-w-[1294px] px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-16 items-start">
           <div className="lg:sticky lg:top-32">

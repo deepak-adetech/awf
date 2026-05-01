@@ -21,19 +21,7 @@ const askButtons = [
 
 export function AiAskSection() {
   return (
-    <section
-      className="dynamic-section-padding"
-      style={
-        {
-          "--mobile-pt": "70px",
-          "--mobile-pb": "70px",
-          "--tablet-pt": "100px",
-          "--tablet-pb": "100px",
-          "--desktop-pt": "60px",
-          "--desktop-pb": "60px",
-        } as React.CSSProperties
-      }
-    >
+    <section className="dynamic-section-padding">
       <div className="mx-auto max-w-[1294px] px-6">
         <div className="rounded-[28px] border border-gray-100 bg-[#FAFAFA] p-8 lg:p-12 text-center">
           <p className="text-sm font-medium uppercase tracking-[0.16em] text-[#1E1E1E]/60">How it works?</p>

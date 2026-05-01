@@ -2,15 +2,7 @@ import Image from "next/image";
 
 export function JourneyEngineSection() {
   return (
-    <section
-      className="dynamic-section-padding"
-      style={
-        {
-          "--desktop-pt": "100px",
-          "--desktop-pb": "60px",
-        } as React.CSSProperties
-      }
-    >
+    <section className="dynamic-section-padding">
       <div className="mx-auto max-w-[1204px] px-6">
         <div className="flex items-center justify-center mb-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-[#1E1E1E]">

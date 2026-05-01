@@ -12,15 +12,7 @@ export function IndustryUseCasesSection() {
   const ind = industries.find((i) => i.id === active) ?? industries[0];
 
   return (
-    <section
-      className="dynamic-section-padding"
-      style={
-        {
-          "--desktop-pt": "48px",
-          "--desktop-pb": "17px",
-        } as React.CSSProperties
-      }
-    >
+    <section className="dynamic-section-padding">
       <div className="mx-auto max-w-[1288px] px-6">
         <div className="flex items-center justify-center mb-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-[#1E1E1E]">

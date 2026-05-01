@@ -77,15 +77,7 @@ export function RouteMomentSection() {
   }, []);
 
   return (
-    <section
-      className="dynamic-section-padding bg-[#F9F8F8]"
-      style={
-        {
-          "--desktop-pt": "100px",
-          "--desktop-pb": "120px",
-        } as React.CSSProperties
-      }
-    >
+    <section className="dynamic-section-padding bg-[#F9F8F8]">
       <div className="mx-auto max-w-[1394px] px-6 lg:px-12 xl:px-16">
         <div className="flex items-end justify-between gap-6 mb-10 lg:mb-12">
           <h2 className="text-[32px] leading-[1.2] font-medium tracking-[-0.06em] text-[#1E1E1E] md:text-[60px] max-w-[860px]">

@@ -3,19 +3,7 @@ import { dayMilestones, testimonials } from "@/lib/content";
 
 export function WhiteGloveSection() {
   return (
-    <section
-      className="dynamic-section-padding bg-[#F9F8F8]"
-      style={
-        {
-          "--mobile-pt": "48px",
-          "--mobile-pb": "30px",
-          "--tablet-pt": "100px",
-          "--tablet-pb": "50px",
-          "--desktop-pt": "100px",
-          "--desktop-pb": "50px",
-        } as React.CSSProperties
-      }
-    >
+    <section className="dynamic-section-padding bg-[#F9F8F8]">
       <div className="mx-auto max-w-[1138px] px-6">
         {/* Badge with avatars */}
         <div className="flex items-center justify-center mb-8">
